@@ -5,7 +5,7 @@ CEO 教你用 Emacs
 
 对于还没使用过 Emacs 的人，可能比较厌恶 Emacs，但是我觉得，你们会爱上它的（如果尝试一下）。 Emacs 有点鲁布·戈德堡机械的味道，就好比你在一座房子里放了很多设备，相互关联工作，但是乍一看实现的只不过是烤面包片机的功能。但我可不是真的这个意思，注意我前面说的是“乍一看”。一旦你掌握了 Emacs 的使用技巧，你将意识到，我的天！这是一台热核能的烤面包机！它几乎可以作为任何文本处理的引擎。仔细想想，在你们使用电脑花费的时间中，有太多时间是和文本打交道。所以我这个说法有点大胆了，但是，这却是事实。
 
-
+也许对我而言，最重要的一点是， Emacs 是我使用过的应用中，最让我感觉我能掌控的。而不是让我感觉我是那种被坐落在 [Soma][30] 或者 Redmond 某个地方的豪华办公室里的产品营销部门洗脑的“钱多，人傻”的匿名用户。现代的生产力和创作应用（比如 Pages，IDE）就像碳纤维竞赛自行车，出厂时就组装得很好很完整。而 Emacs 就像一箱经典的 [Campagnolo][31] 零件加漂亮的刚质车架，但是没给配曲柄和刹车握把。缺的东西你得自己去网上涛。
 Perhaps more importantly to me though, it's the one application I've ever used that makes me feel like I really own it instead of casting me as an anonymous "user" whose wallet is cleverly targeted by product marketing departments in fancy offices somewhere near [Soma][30] or Redmond. Modern productivity and authoring applications (e.g., Pages or IDEs) are like carbon fiber racing bikes. They come kitted out very nicely and fully assembled. Emacs is like a box of classic [Campagnolo][31] parts and a beautiful lugged steel frame that's missing one crank arm and a brake lever that you have to find in some tiny subculture on the Internet. The first one is faster and complete. The second is a source of endless joy or annoyance depending on your personality—and will last until your dying day. I'm the sort of person who feels equal joy at finding an old stash of Campy parts or tweaking my editor with eLisp. YMMV.
 
 ![1933 steel bicycle](https://blog.fugue.co/assets/images/bicycle.jpg)
