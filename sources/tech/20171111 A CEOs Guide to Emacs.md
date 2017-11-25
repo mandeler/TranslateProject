@@ -1,5 +1,5 @@
 # mandeler translating A CEO's Guide to Emacs
-CEO 教你用 Emacs
+CEO 的 Emacs 指南
 ============================================================
 几年，哦不对，是十几年前，Emacs 是我唯一的编辑器。写代码、写文档、管理邮件和日历，这些我全部在 Emacs 下面完成，而且用的很爽。时光飞逝，我渐渐转而使用一些新的，更炫酷的工具。这导致我离开了鼠标就连一些基本的文本导航操作都忘了。大概三个多月前，我终于意识到，我在应用之间/电脑设备之间切换浪费了大量的时间，这时我决定再切换回 Emacs。这个决定真的很明智，其原因我接下来会一一列出。本文中，我还会谈到 `.emacs`  和 Dropbox 的一些技巧，这样读者可以更好地配置可以随心切换的使用环境。
 
@@ -13,15 +13,15 @@ Youtube: [https://www.youtube.com/watch?v=khJQgRLKMU0][6].
 
 可能会给人映像 Emacs 有点落伍有点过时。但实际上并不是这样，Emacs 很强大，而且不会过时，但是它需要你花时间去了解他的用法。 Emacs 的用法和一般的使用习惯区别很大，看起来有点古怪，但是逻辑性很好，这使得你没法抗拒，为之着迷。我觉得， Emacs 代表着未来，而不是过去。就像刚质车架，经年累月，还是一样舒适好用。而神奇的碳纤维自行车到时候却支离破碎，只能填埋到垃圾场。 Emacs 也像这样，将会一直是个好用的工具，而最新的流行应用，将被人们遗忘脑后。
 
-If the notion of building your own personal working environment by editing Lisp code and having that fits-like-a-glove environment follow you to any computer is appealing to you, you may really like Emacs. If you like the new and shiny and want to get straight to work without much investment of time and mental cycles, it's likely not for you. I don't write code any more (other than Ludwig and Emacs Lisp), but many of the engineers at Fugue use Emacs to good effect. I'd say our engineers are about 30% Emacs, 40% IDEs, and 30% Vim users. But, this post is about Emacs for CEOs and other [Pointy-Haired Bosses][32] (PHB)[1][7] (and, hey, anyone who’s curious), so I'm going to explain and/or rationalize why I love it and how I use it. I also hope to provide you with enough detail that you can have a successful experience with it, without hours of Googling.
+如果你觉得改 Lisp 代码，搭建个人工作环境，同时让这个量身打造的环境在任意电脑都能随手可用这个主意还不错，你很可能会喜欢上 Emacs 的。而如果你喜欢新的炫酷的应用，不想多花时间和精力调试，想要直接上手使用，那 Emacs 就不是你的菜了。我个人已经不写代码了（除了 Ludwig 和 Emacs Lisp），但是 Fugue 工作的很多工程师用 Emacs 用的挺好的。我必须得说，我们的工程师编辑器使用占比大概是 Emacs 30%， IDE 40%， Vim 30%。但是，咱这文章不是写给 CEO 和 [秀顶光的老板们][32] (PHB) 看的嘛（哦，对了，还有感兴趣的亲们），那我就专门写写为啥我爱用 Emacs 以及我是怎么使用它的。我也希望能给各位读者提供足够多的细节，让你们能够有个成功的体验，而不需要花上几个小时去谷歌。
 
-### Lasting Advantages
+### 长期的优势
 
-The long-term advantages that come with using Emacs just make life easier. The net gain makes the initial lift entirely worthwhile. Consider these:
+使用 Emacs 的长期优势是让你活得轻松些，这一收获会让你前期的投入变得物有所值。想想下面这些：
 
-### No More Context Switching
+### 不用再换来换去
 
-Org Mode alone is worth investing some serious time in, but if you are like me, you are usually working on a dozen or so documents—from blog posts to lists of what you need to do for a conference to employee reviews. In the modern world of computing, this generally means using several applications, all of which have distracting user interfaces and different ways to store, sort, and search. The result is that you need to constantly switch mental contexts and remember minutiae. I hate context switching because it is an imposition put on me due to a broken interface model[2][8] and I hate having to remember things my computer should remember for me in any rational world. In providing a single environment, Emacs is even more powerful for the PHB than the programmer, since programmers tend to spend a greater percentage of their day in a single application. Switching mental contexts has a higher cost than is often apparent. OS and application vendors have tarted up interfaces to distract us from this reality. If you’re technical, having access to a powerful [language interpreter][33] in a single keyboard shortcut (`M-:`) is especially useful.[3][9]
+单单 Org 模式这一项，就值得你花不少时间去研究了，但你要是和我一样，经常要处理成堆的文档--博客啊、会议备忘啊、员工评价啊这些。通常意味着要用好几种应用才能处理，这些应用的界面不一样，存储、筛选、搜索方式也不一样。导致的问题就是，你得频繁地切换思维环境，还要记住一些细枝末节的的东西。我很讨厌切换环境，因为这是由于用户界面 [2][8] 不一致，从而强加给我的问题，而且我很讨厌记住一些理论上本该电脑设备去记住的东西。在提供单一一致的环境方面， Emacs 对 PHB 们比对程序员们更有用，因为程序员通常一天下来只会用一种应用。切换思维环境导致的成本增加其实比我们显而易见的多得多。操作系统和应用提供商试图通过改变界面以使我们难以意识到这个事实。如果你是个技术，通过快捷键 (`M-:`) 来调出强大的 [语言解释器][33] 是非常有用的。[3][9]
 
 Many applications can be full screened all day and used to edit text. Emacs is singular because it is both an editor and a Lisp interpreter. In essence, you have a Turing complete machine a keystroke or two away at all times, while you go about your business. If you know a little or a lot about programming, you'll recognize that this means you can do  _anything_  in Emacs. The full power of your computer is available to you in near real time while you work, once you have the commands in memory. You won't want to re-create Excel in eLisp, but most things you might do in Excel are smaller in scope and easy to accomplish in a line or two of code. If I need to crunch numbers, I'm more likely to jump over to the scratch buffer and write a little code than open a spreadsheet. Even if I have an email to write that isn't a one-liner, I'll usually just write it in Emacs and paste it into my email client. Why context switch when you can just flow? You might start with a simple calculation or two, but, over time, anything you need computed can be added with relative ease to Emacs. This is perhaps unique in applications that also provide rich features for creating things for other humans. Remember those magical terminals in Isaac Asimov's books? Emacs is the closest thing I've encountered to them.[4][10] I no longer decide what app to use for this or that thing. Instead, I just work. There is real power and efficiency to having a great tool and committing to it.
 
