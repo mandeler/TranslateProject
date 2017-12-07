@@ -55,15 +55,15 @@ Emacs 比其他环境优越的第三个原在于，你可以轻松地把手头�
 
 写这篇文档的时候，我使用 Emacs 的按键和按键组合用法。 'C' 指代 'contorl'，'M' 指代 'meta' （通常映射到了微软的 Alt 键或者苹果的 Option 键），连字符指代按键组合， `C-h t` 表示按住 control 键，然后按下 h 键，再松开 control 键，接着按下 t 键。这条命令用来引出下面的教程，接着往下读。
 
-不要使用方向键和鼠标，它们可以用，但是你应该先花一周时间使用 Emacs 自带的导航命令。一旦形成肌肉记忆，你将喜欢用导航命令，到哪也离不开了。 Emacs 使用说明在这块写的已经很好了，我这里做些归纳，这样你就不用再去读整篇的教程了。无聊的地方在于，不再是用方向键来表示上下左右，而是分别用 `C-b` 表示后退， `C-f` 表示前进， `C-p` 表示上一个 ( up )， `C-n` 表示下一个 ( down )。你可能会想“我为什么要这么麻烦呢？用方向键不是很好吗？”这是有原因的。首先，使用快捷键，在打字的时候，手不需要离开输入位置。其次，前进后退键和 Alt 同时按下时，可以以单词为单位进行跳格(Emacspeak 里面 Alt 对应的是 Meta )。实际上，这四个导航键用起来会更顺手。第三个好处是，如果你需要重复某个命令，可以在前面加上数量。这个功能我经常使用，编辑文档的时候，估计一下需要跳几行或者跳几个单词，比如 `C-9 C-p` 可以上跳9行，`M-5 M-b`可以向前跳5个单词。其他一些重要的导航命令都是以 `a` 开头，以 `e` 结尾的。 `C-a|e` 用在行间，`M-a|e` 用在句中。为了保证句命令正常执行，句号后面需要加双空格，这样即提供了有用的特性，又可以消除一些 [思维上的误差][38] 。如果想要把文档导出到某个 [单空格的发布环境][39] ，写个宏简单运行一下就好了。 Emacs 自带的说明真的值得过一遍。有些读者没耐心看官方自带的手册，我这里覆盖几个重要的命令，但是官方说明真的很不错。
-It genuinely is worth going through the tutorial that ships with Emacs. I'll cover a few important commands for the truly impatient, but the tutorial is gold. Reminder: `C-h t` for the tutorial.
+不要使用方向键和鼠标，它们可以用，但是你应该先花一周时间使用 Emacs 自带的导航命令。一旦形成肌肉记忆，你将喜欢用导航命令，到哪也离不开了。 Emacs 使用说明在这块写的已经很好了，我这里做些归纳，这样你就不用再去读整篇的教程了。无聊的地方在于，不再是用方向键来表示上下左右，而是分别用 `C-b` 表示后退， `C-f` 表示前进， `C-p` 表示上一个 ( up )， `C-n` 表示下一个 ( down )。你可能会想“我为什么要这么麻烦呢？用方向键不是很好吗？”这是有原因的。首先，使用快捷键，在打字的时候，手不需要离开输入位置。其次，前进后退键和 Alt 同时按下时，可以以单词为单位进行跳格(Emacspeak 里面 Alt 对应的是 Meta )。实际上，这四个导航键用起来会更顺手。第三个好处是，如果你需要重复某个命令，可以在前面加上数量。这个功能我经常使用，编辑文档的时候，估计一下需要跳几行或者跳几个单词，比如 `C-9 C-p` 可以上跳9行，`M-5 M-b`可以向前跳5个单词。其他一些重要的导航命令都是以 `a` 开头，以 `e` 结尾的。 `C-a|e` 用在行间，`M-a|e` 用在句中。为了保证句命令正常执行，句号后面需要加双空格，这样即提供了有用的特性，又可以消除一些 [思维上的误差][38] 。如果想要把文档导出到某个 [单空格的发布环境][39] ，写个宏简单运行一下就好了。 Emacs 自带的说明真的值得过一遍。有些读者没耐心看官方自带的手册，我这里覆盖几个重要的命令，但是官方说明真的很不错。注：`C-h t` 可以打开说明文本。
 
-### Learn To Copy and Paste
+### 学会复制粘贴
 
-You can put Emacs into `CUA` mode, which will work in familiar ways, but the native Emacs way is pretty great and plenty easy once you learn it. You mark regions (like selecting) by using Shift with the navigation commands. So `C-F` selects one character forward from the cursor, etc. You copy with `M-w`, you cut with `C-w`, and you paste with `C-y`. These are actually called killing and yanking, but it's very similar to cut and paste. There is magic under the hood here in the kill ring, but for now, just worry about cut, copy, and paste. If you start fumbling around at this point, `C-x u` is undo...
+把 Emacs 调整到 `CUA` 模式可以用起来更亲切一些，但是一旦你掌握了 Emacs 特有的模式，就会感觉它好用又简单。通过 Shift 和导航命令组合，标记选区（类似选中区域），例如 `C-F` 选中光标往前一个字母。`M-w` 表示复制， `C-w` 表示剪切， `C-y` 表示粘贴。实际上这个操作称为 "killing" 和 "yangking" ，但是和剪切、粘贴很像。这套操作有更神奇的地方，但是现在，我们就先记得它有剪切、复制、粘贴的功能就行了。要是不小心敲错了，`C-x u` 可以回退操作。
 
-### Next, Learn Ido Mode
+### 接着，学习 Ido 模式
 
+相信我，Ido 模式让文件操作变得更加简单。
 Trust me. Ido makes working with files much easier. You don't generally use a separate Finder|Explorer window to work with files in Emacs. Instead you use the editor's commands to create, open, and save files. This is a bit of a pain without Ido, so I recommend installing it before learning the other way. Ido comes with Emacs beginning with version 22, but you'll want to make some tweaks to your `.emacs` file so that it is always used. This is a good excuse to get your environment set up.
 
 Most features in Emacs come in modes. To install any given mode, you'll need to do two things. Well, at first you'll need to do a few extra things, but these only need to be done once, and thereafter only two things. So the extra things are that you'll need a single place to put all your eLisp files and you'll need to tell Emacs where that place is. I suggest you make a single directory in, say, Dropbox that is your Emacs home. Inside this, you'll want to create an `.emacs` file and an `.emacs.d` directory. Inside the `.emacs.d`, make a directory called `lisp`. So you should have:
