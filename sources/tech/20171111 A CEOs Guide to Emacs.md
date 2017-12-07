@@ -1,17 +1,17 @@
 # mandeler translating A CEO's Guide to Emacs
 CEO 的 Emacs 指南
 ============================================================
-几年，哦不对，是十几年前，Emacs 是我唯一的编辑器。写代码、写文档、管理邮件和日历，这些我全部在 Emacs 下面完成，而且用的很爽。时光飞逝，我渐渐转而使用一些新的，更炫酷的工具。这导致我离开了鼠标就连一些基本的文本导航操作都忘了。大概三个多月前，我终于意识到，我在应用之间/电脑设备之间切换浪费了大量的时间，这时我决定再切换回 Emacs。这个决定真的很明智，其原因我接下来会一一列出。本文中，我还会谈到 `.emacs`  和 Dropbox 的一些技巧，这样读者可以更好地配置可以随心切换的使用环境。
+几年，哦不对，是十几年前，Emacs 是我唯一的编辑器。写代码、写文档、管理邮件和日历，这些我全部在 Emacs 下面完成，而且用的很爽。时光飞逝，我渐渐转投到一些新的，更炫酷的工具。这导致我离开了鼠标就连一些基本的文本导航操作都忘了。大概三个多月前，我终于意识到，我在应用之间/电脑设备之间切换浪费了大量的时间，这时我决定再切换回 Emacs。这个决定真的很明智，其原因我接下来会一一列出。本文中，我还会谈到 `.emacs`  和 Dropbox 的一些技巧，这样读者可以更好地配置可以随心切换的使用环境。
 
-对于还没使用过 Emacs 的人，可能比较厌恶 Emacs，但是我觉得，你们会爱上它的（如果尝试一下）。 Emacs 有点鲁布·戈德堡机械的味道，就好比你在一座房子里放了很多设备，相互关联工作，但是乍一看实现的只不过是烤面包片机的功能。但我可不是真的这个意思，注意我前面说的是“乍一看”。一旦你掌握了 Emacs 的使用技巧，你将意识到，我的天！这是一台热核能的烤面包机！它几乎可以作为任何文本处理的引擎。仔细想想，在你们使用电脑花费的时间中，有太多时间是和文本打交道。所以我这个说法有点大胆了，但是，这却是事实。
+对于还没使用过 Emacs 的人，可能比较厌恶 Emacs，但是我觉得，你们会爱上它的（如果尝试一下）。 Emacs 有点鲁布·戈德堡机械的味道，就好比你在一座房子里放了很多设备，相互关联工作，但是乍一看实现的只不过是烤面包片机的功能。但我可不是真的这个意思，注意我前面说的是“乍一看”。一旦你掌握了 Emacs 的使用技巧，你将意识到，我的天，这是一台热核能的烤面包机！它几乎可以作为任何文本处理的引擎。仔细想想，在你们使用电脑花费的时间中，有太多时间是和文本打交道。所以我这个说法虽然有点大胆了，但是，这却是事实。
 
-也许对我而言，最重要的一点是， Emacs 是我使用过的应用中，最让我感觉我能掌控的。而不是让我感觉我是那种被坐落在 [Soma][30] 或者 Redmond 某个地方的豪华办公室里的产品营销部门洗脑的“钱多，人傻”的匿名用户。现代的生产力和创作应用（比如 Pages，IDE）就像碳纤维竞赛自行车，出厂时就组装得很好很完整。而 Emacs 就像一箱经典的 [Campagnolo][31] 零件加漂亮的刚质车架，但是没给配曲柄和刹车握把。缺的东西你得自己去网上淘。前者用起来体验很完整，也很快。而后者则是无穷的欢乐和烦恼--取决于你的性格，而且这种感受会一直伴着你。我属于那种找到收藏的 Campy 老配件和用 eLisp 调试 Emacs 时一样开心的那种人。YMMV （译者：YMMV不懂）
+也许对我而言，最重要的一点是， Emacs 是我使用过的应用中，最让我感觉我能掌控的。而不是让我感觉我是那种被坐落在 [Soma][30] 或者 Redmond 某个地方的豪华办公室里的产品营销部门洗脑的“钱多，人傻”的匿名用户。现代的生产力和创作应用（比如 Pages，IDE）就像碳纤维竞赛自行车，出厂时就组装得很好很完整。而 Emacs 就像一箱经典的 [Campagnolo][31] 零件加漂亮的刚质车架，但是没给配曲柄和刹车握把。缺的东西你要自己去网上淘。前者用起来体验很完整，也很快。而后者则是无穷的欢乐或烦恼--取决于你的性格，而且这种感受会一直伴着你。我属于那种找到收藏的 Campy 老配件和用 eLisp 调试 Emacs 时一样开心的那种人。YMMV （译者：YMMV不懂啥意思）
 
-![1933 steel bicycle](https://blog.fugue.co/assets/images/bicycle.jpg)
+![1933 年的刚质自行车](https://blog.fugue.co/assets/images/bicycle.jpg)
 我至今还骑着的 1933 年制刚质自行车。看看关于车架的对比视频
 Youtube: [https://www.youtube.com/watch?v=khJQgRLKMU0][6].
 
-可能会给人映像 Emacs 有点落伍有点过时。但实际上并不是这样，Emacs 很强大，而且不会过时，但是它需要你花时间去了解他的用法。 Emacs 的用法和一般的使用习惯区别很大，看起来有点古怪，但是逻辑性很好，这使得你没法抗拒，为之着迷。我觉得， Emacs 代表着未来，而不是过去。就像刚质车架，经年累月，还是一样舒适好用。而神奇的碳纤维自行车到时候却支离破碎，只能填埋到垃圾场。 Emacs 也像这样，将会一直是个好用的工具，而最新的流行应用，将被人们遗忘脑后。
+Emacs 可能会给人映像有点落伍有点过时。但实际上并不是这样，Emacs 很强大，而且不会过时，但是它需要你花时间去了解它的用法。 Emacs 的用法和一般的使用习惯区别很大，看起来有点古怪，但是逻辑性很好，这使得你没法抗拒，为之着迷。我觉得， Emacs 代表着未来，而不是过去。就像刚质车架，经年累月，还是一样舒适好用。而神奇的碳纤维自行车到时候却支离破碎，只能填埋到垃圾场。 Emacs 也像这样，将会一直是个好用的工具，而最新的流行应用，将被人们遗忘脑后。
 
 如果你觉得改 Lisp 代码，搭建个人工作环境，同时让这个量身打造的环境在任意电脑都能随手可用这个主意还不错，你很可能会喜欢上 Emacs 的。而如果你喜欢新的炫酷的应用，不想多花时间和精力调试，想要直接上手使用，那 Emacs 就不是你的菜了。我个人已经不写代码了（除了 Ludwig 和 Emacs Lisp），但是 Fugue 工作的很多工程师用 Emacs 用的挺好的。我必须得说，我们的工程师编辑器使用占比大概是 Emacs 30%， IDE 40%， Vim 30%。但是，咱这文章不是写给 CEO 和 [秀顶光的老板们][32] (PHB) 看的嘛（哦，对了，还有感兴趣的亲们），那我就专门写写为啥我爱用 Emacs 以及我是怎么使用它的。我也希望能给各位读者提供足够多的细节，让你们能够有个成功的体验，而不需要花上几个小时去谷歌。
 
@@ -21,43 +21,41 @@ Youtube: [https://www.youtube.com/watch?v=khJQgRLKMU0][6].
 
 ### 不用再换来换去
 
-单单 Org 模式这一项，就值得你花不少时间去研究了，但你要是和我一样，经常要处理成堆的文档--博客啊、会议备忘啊、员工评价啊这些。通常意味着要用好几种应用才能处理，这些应用的界面不一样，存储、筛选、搜索方式也不一样。导致的问题就是，你得频繁地切换思维环境，还要记住一些细枝末节的的东西。我很讨厌切换环境，因为这是由于用户界面 [2][8] 不一致，从而强加给我的问题，而且我很讨厌记住一些理论上本该电脑设备去记住的东西。在提供单一一致的环境方面， Emacs 对 PHB 们比对程序员们更有用，因为程序员通常一天下来只会用一种应用。切换思维环境导致的成本增加其实比我们显而易见的多得多。操作系统和应用提供商试图通过改变界面以使我们难以意识到这个事实。如果你是个技术，通过快捷键 (`M-:`) 来调出强大的 [语言解释器][33] 是非常有用的。[3][9]
+单一个 Org 模式，就值得你花不少时间去研究了，但你要是和我一样，经常要处理成堆的文档--博客啊、会议备忘啊、员工评价啊这些。通常意味着要用好几种应用才能处理，这些应用的界面不一样，存储、筛选、搜索方式也不一样。导致的问题就是，你得频繁地切换思维环境，还要记住一些细枝末节的的东西。我很讨厌切换环境，因为这是由于用户界面 [2][8] 不一致，从而强加给我的问题，而且我很讨厌记住一些理论上本该电脑设备去记住的东西。在提供单一一致的环境方面， Emacs 对 PHB 们比对程序员们更有用，因为程序员通常一天下来只会用一种应用。切换思维环境导致的成本增加其实比我们显而易见的多得多。操作系统和应用提供商试图通过改变界面以使我们难以意识到这个事实。如果你是个技术，通过快捷键 (`M-:`) 来调出强大的 [语言解释器][33] 是非常有用的。[3][9]
 
-Many applications can be full screened all day and used to edit text. Emacs is singular because it is both an editor and a Lisp interpreter. In essence, you have a Turing complete machine a keystroke or two away at all times, while you go about your business. If you know a little or a lot about programming, you'll recognize that this means you can do  _anything_  in Emacs. The full power of your computer is available to you in near real time while you work, once you have the commands in memory. You won't want to re-create Excel in eLisp, but most things you might do in Excel are smaller in scope and easy to accomplish in a line or two of code. If I need to crunch numbers, I'm more likely to jump over to the scratch buffer and write a little code than open a spreadsheet. Even if I have an email to write that isn't a one-liner, I'll usually just write it in Emacs and paste it into my email client. Why context switch when you can just flow? You might start with a simple calculation or two, but, over time, anything you need computed can be added with relative ease to Emacs. This is perhaps unique in applications that also provide rich features for creating things for other humans. Remember those magical terminals in Isaac Asimov's books? Emacs is the closest thing I've encountered to them.[4][10] I no longer decide what app to use for this or that thing. Instead, I just work. There is real power and efficiency to having a great tool and committing to it.
+许多应用可以整天全屏开着用来编辑文本。 Emac 是其中独一无二的，因为它即是文本编辑器，又是 Lisp 翻译器。当你处理文件的时候，基本上手边会有这么一台电脑。如果你稍微懂一点编程，你就会意识到这意味着你可以用 Emacs 做 _任何事情_ 。只要你记得命令是怎么用的，就能发挥电脑的全部性能。你不会想要在 eLisp 里面再去创建 Excel 表格，但是你在 Excel 中做的大部分工作都将通过一两行的代码轻松解决。当我需要处理数据的时候，我更喜欢跳转到缓存区写个几行命令，而不是新建一个 sheet 。甚至当我在写邮件的时候，哪怕不是一两行内容，我都会先在 Emacs 里面写好，然后粘贴到邮件客户端里面去。能接在一个环境处理的，为啥要切过来切过去呢？一开始的时候，可能只是简单地处理一些计算，时间长了，你需要处理的任何东西都可以轻松的交给 Emacs 去做。能提供丰富的功能给其他人创建文件，这在应用软件里面有可能是独一无二的。还记得 Issac Asimov 在书里面写到的神奇的终端吗？ Emacs 是我接触到的最接近那些终端的了。用了 Emacs ，我再也不纠结在什么情况下使用哪个应用程序了，只需要专注工作就行。工具顺手，效率也会高很多。
 
-### Creating Things in Peace and Quiet
+### 平心静气地写点东西
 
-What’s the end result of having the best text editing features I've ever found? Having a community of people making all manner of useful additions? Having the full power of Lisp a keychord away? It’s that I use Emacs for all my creative work, aside from making music or images.
+我用了 Emacs 之后，效果怎么样呢？仅仅是社区里面的人做了很多插件吗？又或者仅仅是因为一键之隔就能发挥 Lisp 的强大功能？实际上，除了编辑音频和图片，我所有的创造性工作都用 Emacs 做。
+我桌子上放了双显示器，一块屏幕整天全屏开着 Emacs ，打开到portrait模式。另一块开着浏览器，用来搜索和阅读，通常也会开着一个终端。日历，邮箱这类应用，都在另一台桌子的苹果电脑上，当我用 Emacs 做事情的时候，所有那些应用都放到后台，提醒功能也都关掉了。这样子，我才能专注于手头的事情。因为我发现，现代界面的应用程序，设计初衷就是试着变得简单易用，导致的结果是你几乎没办法排除它们带来的干扰。我不需要人提醒那些我已經做了成千上万次的操作，我只需要一张干净清爽的白纸，让我能有思考的空间。有可能是上了年纪经历风霜之后，我已经适应不了嘈杂的环境了。但是我依然建议每个人都值得试一下我这种方式。体验一下在计算机处理环境中获得真正的安宁是什么感觉。诚然，好多应用程序有隐藏界面的模式，而且微软和苹果现在的全屏模式也不再那么鸡肋了。但是除了 Emacs 你还真找不到其他的应用，能让你沉浸式地处理大部分工作。除非你整天敲代码，或者在处理很长的文本，比如写书，不然你还是得面对其他应用程序带来的“噪音”。再一个，好多现代应用看上去牛逼哄哄，用起来糟糕透顶 [5][11] 。我唯一一个比办公软件还讨厌的，就属在线版本的办公软件了。
 
-I have a dual monitor set up at my desk. One of them is in portrait mode with Emacs full screened all day long. The other one has web browsers for researching and reading; it usually has a terminal open as well. I keep my calendar, email, etc., on another desktop in OS X, which is hidden while I'm in Emacs, and I keep all notifications turned off. This allows me to actually concentrate on what I'm doing. I've found eliminating distractions to be almost impossible in the more modern UI applications due to their efforts to be helpful and easy to use. I don't need to be constantly reminded how to do operations I've done tens of thousands of times, but I do need a nice, clean white sheet of paper to be thoughtful. Maybe I'm just bad at living in noisy environments due to age and abuse, but I’d suggest it’s worth a try for anyone. See what it's like to have some actual peace and quiet in your computing environment. Of course, lots of apps now have modes that hide the interface and, thankfully, both Apple and Microsoft now have meaningful full-screen modes. But, no other application is powerful enough to “live in” for most things. Unless you are writing code all day or perhaps working on a very long document like a book, you're still going to face the noise of other apps. Also, most modern applications seem simultaneously patronizing and lacking in functionality and usability.[5][11] The only applications I dislike more than office apps are the online versions.
+![我的电脑桌面](https://blog.fugue.co/assets/images/desktop.jpg)
+我的电脑桌面，左侧是 Emacs
 
-![1933 steel bicycle](https://blog.fugue.co/assets/images/desktop.jpg)
-My desktop arrangement. Emacs on the left.
+那么，通讯工具怎么办？创造和通讯的区别还是很大的。当把创作和通讯分开处理的时候，效率还是蛮高的。我们用的是 Fugue 上的 Slack，这玩意儿又好用又讨厌。我把和日历邮箱放在一个桌面，这样当我在处理工作的时候，看不到那些叨叨我乐得自在。因为哪怕一个消息弹窗、或者一封投资人或董事的邮件，就能打断我的工作。其实很多事情都能等个一两个小时再去处理。
 
-But what about communicating? The difference between creating and communicating is substantial. I'm much more productive at both when I set aside distinct time for each. We use Slack at Fugue, which is both wonderful and hellish. I keep it on a messaging desktop alongside my calendar and email, so that, while I'm actually making things, I'm blissfully unaware of all the chatter in the world. It takes just one Slackstorm or an email from a VC or Board Director to immediately throw me out of my work. But, most things can usually wait an hour or two.
+### 随时随地，永久使用
 
-### Taking Everything with You and Keeping It Forever
+Emacs 比其他环境优越的第三个原在于，你可以轻松地把手头工作带着。用不着各种各样的同步软件，你只要用 Dropbox 或者类似的工具同步一两个目录，就可以在任何你自己定制化的环境中继续工作了。我在 OS X，Windows，Linux 这几个平台中都做过这个事。真的超级简便，超级可靠！这个功能太好用了，所以我很讨厌用 Pages，GDocs，Office 这类软件或者其他类型的文件管理软件，因为那些软件还得让我到本地硬盘或者云端去找我的东西。
 
-The third reason I find Emacs more advantageous than other environments is that it's easy to take all your stuff with you. By this, I mean that, rather than having a plethora of apps interacting and syncing in their own ways, all you need is one or two directories syncing via Dropbox or the like. Then, you can have all your work follow you anywhere in the environment you have crafted to suit your purposes. I do this across OS X, Windows, and sometimes Linux. It's dead simple and reliable. I've found this capability to be so useful that I dread dealing with Pages, GDocs, Office, or other kinds of files and applications that force me back into finding stuff somewhere on the filesystem or in the cloud.
+限制文件在电脑里面永久存储的因素是文件格式。假设人类现在已经解决了存储的问题 [6][12]，过一段时间我们面临的问题是，我还能访问我创建的文件吗？文本格式是计算处理领域历史最悠久的格式了。你可以用 Emacs 轻松地打开一份 1970 年的文本文件，但是用 Office 软件就不一定了。文本文件通常也很小，比 Office 文件小多了。作为一名数字收集者，脑袋里一旦有灵感就会记笔记，能够保证数据简单、轻量、永久存储、随时可用，这对我太重要了。
 
-The limiting factor in keeping things forever on a computer is file format. Assuming that humans have now solved the problem of storage [6][12] for good, the issue we face over time is whether we can continue to access the information we've created. Text files are the most long-lived format for computing. You easily can open a text file from 1970 in Emacs. That’s not so true for Office applications. Text files are also nice and small—radically smaller than Office application data files. As a digital pack rat and as someone who makes lots of little notes as things pop into my head, having a simple, light, permanent collection of stuff that is always available is important to me.
+如果准备好试一下 Emacs 了，接着往下读！下面的章节虽然不能和完整的教程比，但是读完之后，你就能上手试一试了。
 
-If you’re feeling ready to give Emacs a try, read on! The sections that follow don’t take the place of a full tutorial, but will have you operational by the time you finish reading.
+### 学会驾驭 Emacs - 技术配置
 
-### Learning To Ride Emacs - A Technical Setup
+要想拥有这份强大的功能、内心的安宁，需要付出的代价就是 Emacs 的学习路线非常艰难，而且和你之前接触到的都不相同。一开始你会觉得这是把时间浪费在了过时的古怪的应用上，现代社会已经把它 pass 掉了。这个过程有点好比你只会开车，却要去学习骑自行车 [7][13]。
 
-The price of all this power and mental peace and quiet is that you have a steep learning curve with Emacs and it does everything differently than you're used to. At first, this will make you feel like you’re wasting time on an archaic and strange application that the modern world passed by. It’s a bit like learning to ride a bicycle[7][13]if you've only driven cars.
+### 用哪个版本
 
-### Which Emacs?
+我在 OS X 和 Windows 上面用的是 GNU vanilla Emacs 。 OS X 版本可以在 [][34][http://emacsformacosx.com/][35] 上面下载，Windows 版本可以在 [][36][http://www.gnu.org/software/emacs/][37] 上面下载。还有很多其他的版本，尤其是 Mac 上面，但是在这个版本上学习做些功能强悍的处理（包括了 Lisp 和 许多模型），学习曲线要比其他版本缓和的多。那么，下载下来，我们就可以开始啦！ [8][14]
 
-I use the plain vanilla Emacs from GNU for OS X and Windows. You can get the OS X version at [][34][http://emacsformacosx.com/][35] and the Windows version at [][36][http://www.gnu.org/software/emacs/][37]. There are a bunch of other versions out there, especially for the Mac, but I've found the learning curve for doing powerful stuff (which involves Lisp and lots of modes) to be much lower with the real deal. So download it, and we can get started![8][14]
+### 第一步，文本导航
 
-### First, You'll Need To Learn How To Navigate
+写这篇文档的时候，我使用 Emacs 的按键和按键组合用法。 'C' 指代 'contorl'，'M' 指代 'meta' （通常映射到了微软的 Alt 键或者苹果的 Option 键），连字符指代按键组合， `C-h t` 表示按住 control 键，然后按下 h 键，再松开 control 键，接着按下 t 键。这条命令用来引出下面的教程，接着往下读。
 
-I use the Emacs conventions for keys and combinations in this document. These are 'C' for control, 'M' for meta (which is usually mapped to Alt or Option), and the hyphen for holding down the keys in combination. So `C-h t` means to hold down control and type h, then release control and type t. This is the command for bringing up the tutorial, which you should go ahead and do.
-
-Don't use the arrow keys or the mouse. They work, but you should give yourself a week of using the native navigation commands in Emacs. Once you have them committed to muscle memory, you'll likely enjoy them and miss them badly everywhere else you go. The Emacs tutorial does a pretty good job of walking you through them, but I'll summarize so you don't need to read the whole thing. The boring stuff is that, instead of arrows, you use `C-b` for back, `C-f` for forward, `C-p` for previous (up), and `C-n` for next (down). You may be thinking "why in the world would I do that, when I have perfectly good arrow keys?" There are several reasons. First, you don't have to move your hands from the typing position, and the forward and back keys used with Alt (or Meta in Emacspeak) navigate a word at a time. This is more handy than is obvious. The third good reason is that, if you want to repeat a command, you can precede it with a number. I often use this when editing documents by estimating how many words I need to go back or lines up or down and doing something like `C-9 C-p` or `M-5 M-b`. The other really important navigation commands are based on `a` for the beginning of a thing and `e` for the end of a thing. Using `C-a|e` are on lines, and using `M-a|e`, are on sentences. For the sentence commands to work properly, you'll need to double space after periods, which simultaneously provides a useful feature and takes a shibboleth of [opinion][38] off the mental table. If you need to export the document to a single space [publication environment][39], you can write a macro in moments to do so.
-
+不要使用方向键和鼠标，它们可以用，但是你应该先花一周时间使用 Emacs 自带的导航命令。一旦形成肌肉记忆，你将喜欢用导航命令，到哪也离不开了。 Emacs 使用说明在这块写的已经很好了，我这里做些归纳，这样你就不用再去读整篇的教程了。无聊的地方在于，不再是用方向键来表示上下左右，而是分别用 `C-b` 表示后退， `C-f` 表示前进， `C-p` 表示上一个 ( up )， `C-n` 表示下一个 ( down )。你可能会想“我为什么要这么麻烦呢？用方向键不是很好吗？”这是有原因的。首先，使用快捷键，在打字的时候，手不需要离开输入位置。其次，前进后退键和 Alt 同时按下时，可以以单词为单位进行跳格(Emacspeak 里面 Alt 对应的是 Meta )。实际上，这四个导航键用起来会更顺手。第三个好处是，如果你需要重复某个命令，可以在前面加上数量。这个功能我经常使用，编辑文档的时候，估计一下需要跳几行或者跳几个单词，比如 `C-9 C-p` 可以上跳9行，`M-5 M-b`可以向前跳5个单词。其他一些重要的导航命令都是以 `a` 开头，以 `e` 结尾的。 `C-a|e` 用在行间，`M-a|e` 用在句中。为了保证句命令正常执行，句号后面需要加双空格，这样即提供了有用的特性，又可以消除一些 [思维上的误差][38] 。如果想要把文档导出到某个 [单空格的发布环境][39] ，写个宏简单运行一下就好了。 Emacs 自带的说明真的值得过一遍。有些读者没耐心看官方自带的手册，我这里覆盖几个重要的命令，但是官方说明真的很不错。
 It genuinely is worth going through the tutorial that ships with Emacs. I'll cover a few important commands for the truly impatient, but the tutorial is gold. Reminder: `C-h t` for the tutorial.
 
 ### Learn To Copy and Paste
